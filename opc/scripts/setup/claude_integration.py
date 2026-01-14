@@ -522,6 +522,7 @@ def install_opc_integration(
         opc_scripts_mcp = opc_source.parent / "opc" / "scripts" / "mcp"
         target_scripts_mcp = target_dir / "scripts" / "mcp"
         if opc_scripts_mcp.exists():
+            target_scripts_mcp.parent.mkdir(parents=True, exist_ok=True)
             if target_scripts_mcp.exists():
                 shutil.rmtree(target_scripts_mcp)
             shutil.copytree(opc_scripts_mcp, target_scripts_mcp)
